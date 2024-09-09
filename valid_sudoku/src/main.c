@@ -9,7 +9,7 @@
 #define TOGGLE_BIT(x, pos) ((x) ^ (1U << pos))
 
 // sudoku board
-int board[9][9] = {
+int __board[9][9] = {
 	{0,0,0,	7,0,0,	0,9,2},
 	{9,3,1,	6,0,0,	8,0,0},
 	{0,2,8,	0,1,9,	0,0,0},
@@ -36,6 +36,22 @@ int _board[9][9] = {
 	{8,9,6,	2,4,1,	3,5,7},
 	{2,1,3,	5,8,7,	4,6,9}
 };
+
+int board[9][9] =
+{
+	{0,6,5, 7,0,0,	0,9,2},   
+	{9,3,1, 6,0,0,	8,0,0},
+	{7,2,8, 0,1,9,	0,0,0},
+
+	{3,8,9, 1,5,0,	7,4,6},
+	{1,7,2, 9,0,4,	0,8,3},
+	{6,5,4, 8,7,3,	9,2,1},
+
+	{5,0,7, 3,9,6,	2,0,8},
+	{8,0,0, 0,0,1,	3,5,7},
+	{2,1,3, 0,0,0,	4,6,9}
+};
+
 /* CHECK FOR DUPLICATES FUNCTIONS */
 int check_row_duplicates(int pn, int py, int px)
 {
@@ -311,7 +327,7 @@ int check_neighbors(int pn, int px, int py)
 	{
 		for(int x = 0; x < 3; x++)
 		{
-			if(n[y][x] < 1)
+			if(n[y][x] != 0)
 				d++;
 		}
 	}
@@ -320,6 +336,7 @@ int check_neighbors(int pn, int px, int py)
 	return 0;
 }
 
+// TODO: implement backtracking
 void solve_board()
 {
 	for(int y = 0; y < 9; y++)
@@ -360,13 +377,14 @@ int main(int argc, char** argv)
 {
 	printf("STARTING BOARD\n\n");
 	check_board();
+
 	// if(!check_board())
 	// 	return 0;
 
-	for(int i = 0; i < 100000; i++)
-	{
+	// for(int i = 0; i < ; i++)
+	// {
 		solve_board();
-	}
+	// }
 
 	// check_neighbors(3,8,7);
 
