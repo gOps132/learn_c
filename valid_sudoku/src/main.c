@@ -263,7 +263,7 @@ int check_neighbors(int pn, int px, int py)
 {
 	int offset_x = (px/3) * 3;
 	int offset_y = (py/3) * 3;
-	int n[3][3] = {0};
+	int n[3][3] = {0}; //012 //012
 	for(int y = 0; y < 3; y++)
 	{
 		for(int x = 0; x < 3; x++)
@@ -305,15 +305,18 @@ int check_neighbors(int pn, int px, int py)
 			}
 		}
 	}
-	n[offset_y+(py%3)][offset_x+(px%3)] = 1;
+	// n[py%3][px%3] = 1;
+	int d = 0;
 	for(int y = 0; y < 3; y++)
 	{
 		for(int x = 0; x < 3; x++)
 		{
 			if(n[y][x] < 1)
-				return 0;
+				d++;
 		}
 	}
+	if (d > 1)
+		return 1;
 	return 0;
 }
 
@@ -360,11 +363,12 @@ int main(int argc, char** argv)
 	// if(!check_board())
 	// 	return 0;
 
-	// while(!check_complete())
-	for(int i = 0; i < 100; i++)
+	for(int i = 0; i < 100000; i++)
 	{
 		solve_board();
 	}
+
+	// check_neighbors(3,8,7);
 
 	// printf("%d\n", check_empty_values_in_box(0,0));
 

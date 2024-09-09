@@ -1,4 +1,5 @@
 {
+    "cmake.generator": "Ninja",
     "files.associations": {
         "iostream": "cpp",
         "fstream": "cpp",
