@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_CHAR_BUFFER 100
 
@@ -36,8 +37,8 @@ int bin_search(int x, int v[], int n)
 
 int main(int argc, char** argv)
 {
-	int arr[10] = {1,2,3,4,5,6,7,8,9,0};
-	int result = bin_search(6,arr,5);
+	int arr[] = {0,1,2,3,4,5,6,7,8,9};
+	int result = bin_search(1,arr,5);
 	if(result > 0)
 		printf("found number: %d\ncount: %d\n", arr[result], count);
 	else
