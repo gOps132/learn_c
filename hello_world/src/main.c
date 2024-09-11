@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+#define MAX_CHAR_BUFFER 100
 
 void printBinary(int n) {
     if (n > 1) {
@@ -47,21 +51,39 @@ void printHexadecimal(int decimal) {
     }
 }
 
+// int binary_to_decimal(char* binary) {
+//     int d = 0;
+//     for(size_t i = strlen(binary); i > 0; i--)
+//     {
+//         int t = (binary[i] == 48 ? 0 : 1);
+//         d += (int)pow(2, i-1);
+//     }
+//     return d;
+// }
+
+char input[MAX_CHAR_BUFFER];
+int decimal;
+
 int main() {
-    int decimal;
-
 back:
-    printf("Enter a decimal number: ");
-    scanf(" %d", &decimal);
+    // printf("Enter a decimal number: ");
+    // scanf(" %d", &decimal);
 
-    printf("Binary representation: ");
-    if (decimal == 0) {
-        printf("0");
-        printf("\n");
-    } else {
-        printBinary(decimal);
-        printf("\n");
-    }
+    // printf("Binary representation: ");
+    // if (decimal == 0) {
+    //     printf("0");
+    //     printf("\n");
+    // } else {
+    //     printBinary(decimal);
+    //     printf("\n");
+    // }
+
+    printf("Enter a binary number: ");
+    scanf(" %s", &input);
+    getchar();
+
+    printf("Decimal: %d\n",binary_to_decimal(input));
+
     goto back;
 
     // printf("Octal representation: ");
