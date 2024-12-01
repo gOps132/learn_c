@@ -14,22 +14,29 @@ int main (){
 
     printf("Enter the leap year: ");
     scanf(" %d", &year);
-
-    // if its divisible by 400
-    if(year % 400 == 0) // if true execute code if not skip this
+    if(year % 4 == 0 || (year % 100 != 0 && year % 400 == 0))
     {
         printf("Leap year");
-        return 1;
-    }
-    if(year % 100 == 0)
+    } else
     {
-        printf("Not a Leap Year");
-        return 1;
+        printf("Not a Leap year");
     }
-    if(year % 4 == 0)
-    {
-        printf("Leap Year");
-        return 1;
-    }
-    printf("Not leap year");
+
+    // if its divisible by 400
+    // if(year % 400 == 0) // if true execute code if not skip this
+    // {
+    //     printf("Leap year");
+    //     return 1;
+    // }
+    // if(year % 100 == 0)
+    // {
+    //     printf("Not a Leap Year");
+    //     return 1;
+    // }
+    // if(year % 4 == 0)
+    // {
+    //     printf("Leap Year");
+    //     return 1;
+    // }
+    // printf("Not leap year");
 }
