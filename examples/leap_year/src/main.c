@@ -19,7 +19,7 @@ int main (){
         printf("Leap year");
     } else
     {
-        printf("Not a Leap year");
+        printf"Not a Leap year");
     }
 
     // if its divisible by 400

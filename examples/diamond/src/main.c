@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "color.h"
 
 void print_diamond(int rows)
 {

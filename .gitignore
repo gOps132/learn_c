@@ -2,6 +2,9 @@
 build/
 bin/
 cmake-build-debug/
+out/
+.cache/*
+.DS_Store/*
 
 # Prerequisites
 *.d
