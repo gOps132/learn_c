@@ -35,3 +35,8 @@ add_subdirectory(examples/hour_glass)
 add_subdirectory(examples/pascals)
 add_subdirectory(DSA/bubble_sort)
 add_subdirectory(examples/sample)
+add_subdirectory(DSA/insertion_sort)
+
+add_subdirectory(examples/std_dev)
+add_subdirectory(DSA/selection_sort)
+add_subdirectory(DSA/merge_sort)

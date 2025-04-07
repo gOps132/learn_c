@@ -9,7 +9,7 @@
 
 void display(int *arr, int n)
 {
-    for (int i = 0; i < n; i++)
+  for (int i = 0; i < n; i++)
     {
         printf(" %d ", arr[i]); 
     }
@@ -21,10 +21,10 @@ void display_fancifully(int *arr, int n, int c, int w)
     {
         if (i == c)
         {
-            printf(BACKGROUND_TEXT_COLOR(21, 22, " %d "), arr[i]);
+            printf(BACKGROUND_TEXT_COLOR(5, 18, " %d "), arr[i]);
         } else if ( i == w )
         {
-            printf(BACKGROUND_TEXT_COLOR(20, 196, " %d "), arr[i]);
+            printf(BACKGROUND_TEXT_COLOR(10, 196, " %d "), arr[i]);
         } else
         {
             printf(BACKGROUND_TEXT_COLOR(16, 30, " %d "), arr[i]);
@@ -34,26 +34,26 @@ void display_fancifully(int *arr, int n, int c, int w)
 
 int main(){
     int arr[] = { 52,2,30,21,62,10,43,25 };
-
+   
     printf("initial:\n");
     int n = sizeof(arr) / sizeof(int);
     display(arr,n); 
     printf("\n");  
     int i, j;
+
     for (i = 0; i < n-1; i++)
     {
-        for (j = 0; j < n-i-1; j++)
+        int min = i;
+
+        for (j = i+1; j < n; j++)
         {        
-
-            if (arr[j] > arr[j+1])
-            {
-                int tmp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = tmp;
-
-            }
-
+            if (arr[j] < arr[min])
+                min = j;
         }
+
+        int tmp = arr[min];
+        arr[min] = arr[i];
+        arr[i] = tmp;
 
         display_fancifully(arr, n, i, j); 
 
@@ -61,6 +61,6 @@ int main(){
         SLEEP(500); 
 
     }
-
+    
     return 0;
 }

@@ -9,7 +9,7 @@
 
 void display(int *arr, int n)
 {
-    for (int i = 0; i < n; i++)
+  for (int i = 0; i < n; i++)
     {
         printf(" %d ", arr[i]); 
     }
@@ -34,26 +34,21 @@ void display_fancifully(int *arr, int n, int c, int w)
 
 int main(){
     int arr[] = { 52,2,30,21,62,10,43,25 };
-
+   
     printf("initial:\n");
     int n = sizeof(arr) / sizeof(int);
     display(arr,n); 
     printf("\n");  
     int i, j;
-    for (i = 0; i < n-1; i++)
+    for (i = 1; i < n; i++)
     {
-        for (j = 0; j < n-i-1; j++)
+        int key = arr[i], j = i -1;
+        while (j >= 0 && arr[j] > key)
         {        
-
-            if (arr[j] > arr[j+1])
-            {
-                int tmp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = tmp;
-
-            }
-
+            arr[j+1] = arr[j];
+            j--;
         }
+        arr[j+1] = key;
 
         display_fancifully(arr, n, i, j); 
 
@@ -61,6 +56,6 @@ int main(){
         SLEEP(500); 
 
     }
-
+    
     return 0;
 }
