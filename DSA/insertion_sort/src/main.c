@@ -33,7 +33,7 @@ void display_fancifully(int *arr, int n, int c, int w)
 }
 
 int main(){
-    int arr[] = { 52,2,30,21,62,10,43,25 };
+    int arr[] = { 23,78,45,8,32,56 };
    
     printf("initial:\n");
     int n = sizeof(arr) / sizeof(int);
@@ -42,7 +42,7 @@ int main(){
     int i, j;
     for (i = 1; i < n; i++)
     {
-        int key = arr[i], j = i -1;
+        int key = arr[i], j = i-1;
         while (j >= 0 && arr[j] > key)
         {        
             arr[j+1] = arr[j];
@@ -52,7 +52,7 @@ int main(){
 
         display_fancifully(arr, n, i, j); 
 
-        printf("pass %d\n", i+1);
+        printf("pass %d\n", i);
         SLEEP(500); 
 
     }

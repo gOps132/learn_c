@@ -15,9 +15,9 @@ void display(int *arr, int n)
     }
 }
 
-void display_fancifully(int *arr, int n, int c, int w)
+void display_fancifully(int *arr, int s, int n, int c, int w)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = s; i < n; i++)
     {
         if (i == c)
         {
@@ -32,6 +32,49 @@ void display_fancifully(int *arr, int n, int c, int w)
     }
 }
 
+int merge(int arr[], int l, int m, int h)
+{
+    int arr1[10], arr2[10];
+    int n1, n2, i, j, k;
+    n1 = m-l+1;
+    n2 = h-m;
+    
+    for (i = 0; i < n1; i++)
+        arr1[i] = arr[l+i];
+    for (j = 0; j < n2; j++)
+        arr2[j] = arr[m+j];
+
+    arr1[i] = 9999;
+    arr2[j] = 9999;
+
+    i = 0;
+    j = 0;
+
+    for (k = l; k <= h; k++)
+    {
+        if (arr1[i] <= arr2[j])
+            arr[k] = arr1[i++];
+        else
+            arr[k] = arr2[j++];
+    }
+
+    return 0;
+}
+
+int merge_sort(int arr[],int low,int high)
+{
+    int mid;
+    if(low<high) {
+        mid=(low+high)/2;
+        // Divide and Conquer
+        merge_sort(arr,low,mid);
+        merge_sort(arr,mid+1,high);
+        // Combine
+        merge(arr,low,mid,high);
+    }
+    return 0;
+}
+
 int main(){
     int arr[] = { 52,2,30,21,62,10,43,25 };
    
@@ -39,28 +82,9 @@ int main(){
     int n = sizeof(arr) / sizeof(int);
     display(arr,n); 
     printf("\n");  
-    int i, j;
 
-    for (i = 0; i < n-1; i++)
-    {
-        int min = i;
-
-        for (j = i+1; j < n; j++)
-        {        
-            if (arr[j] < arr[min])
-                min = j;
-        }
-
-        int tmp = arr[min];
-        arr[min] = arr[i];
-        arr[i] = tmp;
-
-        display_fancifully(arr, n, i, j); 
-
-        printf("pass %d\n", i+1);
-        SLEEP(500); 
-
-    }
-    
+    merge_sort(arr, 1, n);
+    display(arr, n);
+   
     return 0;
 }

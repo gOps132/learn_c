@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(sample)
+project(pointer_access)
 
 set(CMAKE_C_STANDARD 99)
 
