@@ -50,7 +50,6 @@ int main(){
                 int tmp = arr[j];
                 arr[j] = arr[j+1];
                 arr[j+1] = tmp;
-
             }
         }
 

@@ -3,6 +3,7 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 
 //             k;double sin()
 //          ,cos();main(){float A=
@@ -26,7 +27,7 @@
 //          .,~~;;;========;;;:~-.
 //              ..,--------,*/
 
-k;
+int k;
 double sin() ,cos();
 
 int main(){

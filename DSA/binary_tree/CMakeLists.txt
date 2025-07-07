@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.14)
+project(binary_tree)
+
+set(CMAKE_C_STANDARD 99)
+
+set(c_learn_sources
+    src/main.c
+)
+
+add_executable(${PROJECT_NAME} ${c_learn_sources})
+
+# Set build flags and output directories
+set_target_properties(${PROJECT_NAME} PROPERTIES 
+    LINKER_LANGUAGE C
+    SOVERSION ${PROJECT_VERSION_MAJOR}
+    VERSION ${PROJECT_VERSION}
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/${PROJECT_NAME}-${CMAKE_BUILD_TYPE}"
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/${PROJECT_NAME}-${CMAKE_BUILD_TYPE}"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/${PROJECT_NAME}-${CMAKE_BUILD_TYPE}"
+)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/${PROJECT_NAME}-${CMAKE_BUILD_TYPE}"
+)

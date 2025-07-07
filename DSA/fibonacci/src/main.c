@@ -104,7 +104,9 @@ int main()
     scanf(" %lld", &i);
     for(int y = 0; y <= i; y++)
     {
-        printf("%d.) %llu\n",y, matrix_e_fibonacci(y));        
+        printf("%d.) %llu\n",y, matrix_e_fibonacci(y));   
+        if (y == 10001)
+            printf("overflow here\n");
     }
     return 1;
 }

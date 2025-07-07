@@ -37,8 +37,9 @@ int bin_search(int x, int v[], int n)
 
 int main(int argc, char** argv)
 {
+    printf("Hello");
 	int arr[] = {0,1,2,3,4,5,6,7,8,9};
-	int result = bin_search(1,arr,5);
+	int result = bin_search(3,arr,10);
 	if(result > 0)
 		printf("found number: %d\ncount: %d\n", arr[result], count);
 	else
